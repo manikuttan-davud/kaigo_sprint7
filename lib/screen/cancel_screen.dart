@@ -1,11 +1,14 @@
 
 
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kaigo_sprint7/utils/colors.dart';
 import 'package:kaigo_sprint7/utils/text_style.dart';
 
 class CancelScreen extends StatefulWidget {
+  static const route = '/cancel_screen';
   const CancelScreen({super.key});
 
   @override
@@ -55,31 +58,26 @@ class PointsTableWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 1.sw,
-      height: 620.h,
+      height: 720.h,
       color: colorFFFFFF,
       child: Column(
         children:  [
           Padding(
             padding:  EdgeInsets.only(top: 37.h),
-            child: const PointsWidget(points: '+2pt', text: '7日前のキャンセル',),
+            child: const PointsWidget(points: 'pt', text: '7日前のキャンセル', number: '+2',),
           ),
-          SizedBox(height: 12.h,),
           Divider(color: colorBABABA,endIndent: 22.w,indent: 22.w,),
-          const PointsWidget(points: '+3pt', text: '7日前のキャンセル'),
-          SizedBox(height: 12.h,),
+          const PointsWidget(points: 'pt', text: '2日前のキャンセル', number: '+3',),
            Divider(color: colorBABABA,endIndent: 22.w,indent: 22.w,),
-          const PointsWidget(points: '+4pt', text:'7日前のキャンセル' ),
-          SizedBox(height: 12.h,),
+          const PointsWidget(points: 'pt', text:'1日前のキャンセル', number: '+4', ),
            Divider(color: colorBABABA,endIndent: 22.w,indent: 22.w,),
-          const PointsWidget(points: '+6pt', text:'7日前のキャンセル'),
-          SizedBox(height: 12.h,),
+          const PointsWidget(points: 'pt', text:'当日のキャンセル', number: '+6',),
            Divider(color: colorBABABA,endIndent: 22.w,indent: 22.w,),
-          const PointsWidget(points: '+8pt', text: '無断欠勤'),
-          SizedBox(height: 12.h,),
+          const PointsWidget(points: 'pt', text: '無断欠勤', number: '+8',),
            Divider(color: colorBABABA,endIndent: 22.w,indent: 22.w,),
+          //   SizedBox(height: 12.h,),
            //widget Contains Red text
           const RedTextWidget(),
-          SizedBox(height: 12.h,),
            Divider(color: colorBABABA,endIndent: 22.w,indent: 22.w,),
        
         ],
@@ -95,26 +93,49 @@ class RedTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding:  EdgeInsets.only(left: 24.w,right: 25.w,bottom: 19.h,top: 12.h),
-      child: SizedBox(
-        width: 1.sw,
-        //height: 60.w,
-        child: Row(
-          children: [
-           SizedBox(
+    return 
+    Row(
+      children: [
+         Padding(
+           padding:  EdgeInsets.only(left: 24.w,bottom: 14.72.h),
+           child: SizedBox(
             width: 60.w,
-            height: 60.w,
+            height: 70.w,
             child: Text('応募停止',style: tsS24C0xW700 ,)),
-            SizedBox(width: 16.w,),
-             Flexible(child: Text('累積 8 pt以上ペナルティポイントが溜まった場合は、新規求人・採用応募ができなくなります。',style: tsS13C0x400 ,)),
-          ],
-        ),
+         ),
+           SizedBox(width: 16.w,),
+         
+           Flexible(child: Padding(
+             padding:  EdgeInsets.only(top: 17.72.h,right: 25.w,bottom: 18.72.h,),
+             child: Text('累積 8 pt以上ペナルティポイントが溜まった場合は、新規求人・採用応募ができなくなります。',style: tsS13C0x400 ,),
+           )),
+          SizedBox(height: 36.28.h,)
+      ],
+      
+      
+   );
+   
+    // Padding(
+    //   padding:  EdgeInsets.only(left: 24.w,right: 25.w,bottom: 19.h,top: 12.h),
+    //   child: SizedBox(
+    //     width: 1.sw,
+    //    // height: 72.h,
+    //     child: Row(
+    //       children: [
+
+    //        SizedBox(
+    //         width: 60.w,
+    //         height: 74.w,
+    //         child: Text('応募停止',style: tsS24C0xW700 ,)),
+    //         SizedBox(width: 16.w,),
+    //          Flexible(child: Text('累積 8 pt以上ペナルティポイントが溜まった場合は、新規求人・採用応募ができなくなります。',style: tsS13C0x400 ,)),
+    //       ],
+    //     ),
         
      
-      ),
+      
     
-    );
+    
   }
 }
 
@@ -127,32 +148,53 @@ class SecondContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 1.sw,
-      height: 150.h,
+      height: 148.h,
      color:colorFFFFFF,
      child: Column(
       children: [
-        SizedBox(
-          width: 1.sw,
-          child: Padding(
-            padding: EdgeInsets.only(left: 24.w,top: 27.w),
-            child: Text('2. ペナルティポイントが付与されるケース',style:tsS14C0xW500 ,),
-          ),
+        // SizedBox(
+        //   width: 1.sw,
+        //   child: Padding(
+        //     padding: EdgeInsets.only(left: 24.w,top: 27.w),
+        //     child: Text('2. ペナルティポイントが付与されるケース',style:tsS14C0xW500 ,),
+        //   ),
+        // ),
+        Padding(
+          padding:  EdgeInsets.only(top: 27.h,left: 24.w),
+          child: SizedBox(
+            width: 1.sw,
+            child: Text('2. ペナルティポイントが付与されるケース',style:tsS14C0xW500 ,)),
         ),
         SizedBox(height: 12.h,),
-        SizedBox(
-          width: 1.sw,
-          child: Padding(
-            padding:  EdgeInsets.only(left: 24.w,right: 24.w),
-            child: Text('・勤務確定済みの応募をキャンセルした場合',style: tsS13C0x400 ,),
-          ),
+        // SizedBox(
+        //   width: 1.sw,
+        //   child: Padding(
+        //     padding:  EdgeInsets.only(left: 24.w,right: 24.w),
+        //     child: Text('・勤務確定済みの応募をキャンセルした場合',style: tsS13C0x400 ,),
+        //   ),
+        // ),
+        
+        // SizedBox(
+        //   width: 1.sw,
+        //   child: Padding(
+        //     padding:  EdgeInsets.only(left: 24.w,bottom: 27.h),
+        //     child: Text('・無断欠勤を行った場合',style:  tsS13C0x400,),
+        //   ),
+        // )
+        //   ),
+        Padding(
+          padding: EdgeInsets.only(left: 24.w,right: 24.w),
+          child: SizedBox(
+            width: 1.sw,
+            child: Text('・勤務確定済みの応募をキャンセルした場合',style: tsS13C0x400 ,)),
         ),
-        SizedBox(
-          width: 1.sw,
-          child: Padding(
-            padding:  EdgeInsets.only(left: 24.w,),
-            child: Text('・無断欠勤を行った場合',style:  tsS13C0x400,),
-          ),
-        )
+        Padding(
+          padding: EdgeInsets.only(left: 24.w,bottom: 27.h),
+          child: SizedBox(
+            width: 1.sw,
+            child: Text('・無断欠勤を行った場合',style:  tsS13C0x400,)),
+        ),
+
       ]),
     );
   }
@@ -169,26 +211,32 @@ class FirstContainer extends StatelessWidget {
       padding:  EdgeInsets.only(top: 10.h),
       child: Container(
         width: 1.sw,
-        height: 300.h,
+        height: 280.h,
         color:colorFFFFFF,
        child: Column(
         children: [
          SizedBox(
           width: 1.sw,
            child: Padding(
-              padding:  EdgeInsets.only(left: 24.w,top: 37.h),
+              padding:  EdgeInsets.only(left: 23.w,top: 27.h),
               child: Text('1.ペナルティポイント付与数の上限',style:tsS14C0xW500 ,),
             ),
          ),
           SizedBox(height: 12.h,),
-          SizedBox(
-            width: 1.sw,
-            child: Padding(
-              padding:  EdgeInsets.only(left: 24.w,right: 24.w
-              ),
-              child: Text('ペナルティポイント付与数の上限は 8P です。付与されたペナルティポイント数が 8P に達すると、アカウントが一時停止となり求人 / 採用募集への応募ができなくなります。一時停止を解除するには事務局にお問い合わせください。事務局によりアカウントの一時停止が解除されますと、ペナルティポイント数が4ポイントの状態から再度利用を開始することができます。',style: tsS13C0x400,),
-            ),
-          )
+          //  SizedBox(
+          //     width: 1.sw,
+          //     child: Padding(
+          //       padding:  EdgeInsets.only(left: 23.w,right: 25.w,bottom: 27.h
+          //       ),
+          //       child: Text('ペナルティポイント付与数の上限は 8P です。付与されたペナルティポイント数が 8P に達すると、アカウントが一時停止となり求人 / 採用募集への応募ができなくなります。一時停止を解除するには事務局にお問い合わせください。事務局によりアカウントの一時停止が解除されますと、ペナルティポイント数が4ポイントの状態から再度利用を開始することができます。',style: tsS13C0x400,),
+          //     ),
+          //   ),
+           Padding(
+             padding:  EdgeInsets.only(left: 23.w,right: 25.w,bottom: 27.h),
+             child: SizedBox(
+              width: 1.sw,
+              child: Text('ペナルティポイント付与数の上限は 8P です。付与されたペナルティポイント数が 8P に達すると、アカウントが一時停止となり求人 / 採用募集への応募ができなくなります。一時停止を解除するには事務局にお問い合わせください。事務局によりアカウントの一時停止が解除されますと、ペナルティポイント数が4ポイントの状態から再度利用を開始することができます。',style: tsS13C0x400,)),
+           )
         ],
        ),
       ),
@@ -246,26 +294,37 @@ class ThirdContainer extends StatelessWidget {
 }
 
 class PointsWidget extends StatelessWidget {
+  final String number;
   final String points;
   final String text;
   const PointsWidget({
-    Key? key, required this.points, required this.text,
+    Key? key, required this.points, required this.text, required this.number,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: 1.sw,
-      height: 48.h,
+      height: 80.h,
       child: Row(
         children: [
           Padding(
-            padding:  EdgeInsets.only(left:24.w,top: 10.h ),
-            child: Text(points,style: tsS14C0xW700,),
+            padding:  EdgeInsets.only(left: 24.w,bottom: 22.5.h,top: 21.h),
+            child: RichText(text: TextSpan(
+              children: [
+                  TextSpan(
+                    text: number,style: tsS20C0xW700
+                  ),
+                  TextSpan(
+                    text: points,style: tsS14C0xW700
+                  )
+                
+              ]
+            )),
           ),
           SizedBox(width: 16.w,),
           Padding(
-         padding:  EdgeInsets.only(left:24.w,top: 10.h ),
+         padding:  EdgeInsets.only(top: 21.h,bottom: 22.h ),
             child: Text(text,style:tsS13C0x400 ,),
           )
         ],

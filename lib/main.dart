@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:kaigo_sprint7/screen/cancel_screen.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:kaigo_sprint7/utils/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,13 +16,14 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
        designSize: const Size(375, 812),
         builder: (context, child) {
-      return MaterialApp(
+      return GetMaterialApp(
       
         theme: ThemeData(
          
           primarySwatch: Colors.blue,
         ),
-        home: const CancelScreen(),
+     initialRoute: initialRoute,
+        getPages: appRoutes(),
       );
    } );
   }
