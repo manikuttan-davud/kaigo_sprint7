@@ -115,22 +115,6 @@ class RedTextWidget extends StatelessWidget {
       
    );
    
-    // Padding(
-    //   padding:  EdgeInsets.only(left: 24.w,right: 25.w,bottom: 19.h,top: 12.h),
-    //   child: SizedBox(
-    //     width: 1.sw,
-    //    // height: 72.h,
-    //     child: Row(
-    //       children: [
-
-    //        SizedBox(
-    //         width: 60.w,
-    //         height: 74.w,
-    //         child: Text('応募停止',style: tsS24C0xW700 ,)),
-    //         SizedBox(width: 16.w,),
-    //          Flexible(child: Text('累積 8 pt以上ペナルティポイントが溜まった場合は、新規求人・採用応募ができなくなります。',style: tsS13C0x400 ,)),
-    //       ],
-    //     ),
         
      
       
@@ -166,22 +150,7 @@ class SecondContainer extends StatelessWidget {
             child: Text('2. ペナルティポイントが付与されるケース',style:tsS14C0xW500 ,)),
         ),
         SizedBox(height: 12.h,),
-        // SizedBox(
-        //   width: 1.sw,
-        //   child: Padding(
-        //     padding:  EdgeInsets.only(left: 24.w,right: 24.w),
-        //     child: Text('・勤務確定済みの応募をキャンセルした場合',style: tsS13C0x400 ,),
-        //   ),
-        // ),
-        
-        // SizedBox(
-        //   width: 1.sw,
-        //   child: Padding(
-        //     padding:  EdgeInsets.only(left: 24.w,bottom: 27.h),
-        //     child: Text('・無断欠勤を行った場合',style:  tsS13C0x400,),
-        //   ),
-        // )
-        //   ),
+       
         Padding(
           padding: EdgeInsets.only(left: 24.w,right: 24.w),
           child: SizedBox(
@@ -211,7 +180,7 @@ class FirstContainer extends StatelessWidget {
       padding:  EdgeInsets.only(top: 10.h),
       child: Container(
         width: 1.sw,
-        height: 280.h,
+        height: 260.h,
         color:colorFFFFFF,
        child: Column(
         children: [
@@ -223,14 +192,7 @@ class FirstContainer extends StatelessWidget {
             ),
          ),
           SizedBox(height: 12.h,),
-          //  SizedBox(
-          //     width: 1.sw,
-          //     child: Padding(
-          //       padding:  EdgeInsets.only(left: 23.w,right: 25.w,bottom: 27.h
-          //       ),
-          //       child: Text('ペナルティポイント付与数の上限は 8P です。付与されたペナルティポイント数が 8P に達すると、アカウントが一時停止となり求人 / 採用募集への応募ができなくなります。一時停止を解除するには事務局にお問い合わせください。事務局によりアカウントの一時停止が解除されますと、ペナルティポイント数が4ポイントの状態から再度利用を開始することができます。',style: tsS13C0x400,),
-          //     ),
-          //   ),
+       
            Padding(
              padding:  EdgeInsets.only(left: 23.w,right: 25.w,bottom: 27.h),
              child: SizedBox(

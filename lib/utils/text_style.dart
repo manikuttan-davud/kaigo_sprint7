@@ -68,7 +68,7 @@ TextStyle get tsS14C0xW500 => const TextStyle(
       
     );
     TextStyle get tsS16C0x500 => const TextStyle(
-      fontSize: 16,
+      fontSize: 13.8,
       color:colorFFFFFF,
       fontWeight: FontWeight.w500,
        fontFamily: primaryFont

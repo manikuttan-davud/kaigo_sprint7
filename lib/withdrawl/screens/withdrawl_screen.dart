@@ -60,7 +60,7 @@ class _WithdrawlScreenState extends State<WithdrawlScreen> {
              Row(
               children: [
                 //for entering withdrawl amount
-                TextFormFieldWidget(controller: controller, formKey: _formKey, balance: balance, isError: isError),
+                TextFormFieldWidget(controller: controller, formKey: _formKey, balance: balance, isError: isError, isActive: isActive,),
                 //submit button button
                 WithdrawlButton(isActive: isActive, isLoading: isLoading, formKey: _formKey, controller: controller)
               ],
@@ -112,41 +112,45 @@ class WithdrawlButton extends StatelessWidget {
         height: 41.h,
         child: Obx(
            () {
-            return ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(27.5.r)
-              ),
-              backgroundColor: colorFAAA14 ,
-              //disabledBackgroundColor: 
-            ), 
+            return 
+               ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(27.5.r)
+                ),
+                backgroundColor: colorFAAA14 ,
+                //disabledBackgroundColor: 
+              ), 
        onPressed:isActive.value?  (() {
       
         isLoading.value=true;
         Future.delayed((const Duration(seconds: 1)),(() {
           isLoading.value=false;
         }));
-             if (_formKey.currentState!.validate()){
-            isLoading.value=true;
-             Future.delayed(const Duration(seconds: 1), (){
+               if (_formKey.currentState!.validate()){
+              isLoading.value=true;
+               Future.delayed(const Duration(seconds: 1), (){
     
       isLoading.value = false;
        controller.clear();
     }
     );
-             }
+               }
          
-              controller.clear();
-            
+                controller.clear();
+              
       }
       
       
       ):null,
-       child:isLoading.value?const CircularProgressIndicator(strokeWidth: 2,color: colorFFFFFF,): Padding(
-         padding:  EdgeInsets.only(left: 7.37.w,right: 6.1.w),
+       child:isLoading.value? CircularProgressIndicator(strokeWidth: 1.w,color: colorFFFFFF,):  Padding(
+         padding:  EdgeInsets.only(top: 4.5.h),
          child: Text('Withdrawal',style: tsS16C0x500,),
-       ),
-      );
+       ));
+       
+       
+          
+      
           }
         ),
     )
@@ -160,14 +164,14 @@ class TextFormFieldWidget extends StatelessWidget {
     required this.controller,
     required GlobalKey<FormState> formKey,
     required this.balance,
-    required this.isError,
+    required this.isError, required this.isActive,
   }) : _formKey = formKey, super(key: key);
 
   final TextEditingController controller;
   final GlobalKey<FormState> _formKey;
   final int balance;
   final RxBool isError;
-
+  final RxBool isActive;
   @override
   Widget build(BuildContext context) {
     return Flexible(child: Padding(
@@ -201,10 +205,13 @@ class TextFormFieldWidget extends StatelessWidget {
                 prefixIcon: isError.value?SizedBox(
                   width: 16.68.w,
                   height: 15.01.h,
-                  child: const Icon(Icons.warning_amber_outlined,color: colorFF6262,)):null,
-              focusedBorder: const OutlineInputBorder(
+                  child:  Padding(
+                    padding: EdgeInsets.only(bottom: 8.h),
+                    child: const Icon(Icons.warning_amber_outlined,color: colorFF6262,),
+                  )):null,
+              enabledBorder:   const OutlineInputBorder(
                 
-                  borderSide: BorderSide(color: colorFAAA14 )
+                borderSide: BorderSide(color:colorFAAA14,width:1 )
                 
                 ),
                 
