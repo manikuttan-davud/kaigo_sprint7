@@ -37,9 +37,9 @@ class _WithdrawlScreenState extends State<WithdrawlScreen> {
       backgroundColor: colorFFFFFF,
       appBar: AppBar(
         backgroundColor: colorFFFFFF ,
-        shadowColor: colorRGBO1,
+        shadowColor: Colors.transparent,
         leading: const Icon(Icons.arrow_back_ios,color: color45303030,),
-        title: Text('Withdrawal',style:  ts30S14C0xW500 ,),
+        title: Text('出金',style:  ts30S14C0xW500 ,),
         centerTitle: true,
       ),
       body: Form(
@@ -84,7 +84,7 @@ class LastText extends StatelessWidget {
       padding:  EdgeInsets.only(left: 24.w,top: 7.h),
       child: SizedBox(
         width: 1.sw,
-        child: Text('・ The 220 yen fee for withdrawal will be borne by you.',style:tsS11C0x400 ,)),
+        child: Text('・出金時にかかる220円の手数料は自己負担になります',style:tsS11C0x400 ,)),
     );
   }
 }
@@ -119,7 +119,7 @@ class WithdrawlButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(27.5.r)
                 ),
                 backgroundColor: colorFAAA14 ,
-                //disabledBackgroundColor: 
+                disabledBackgroundColor: Colors.orange[100]
               ), 
        onPressed:isActive.value?  (() {
       
@@ -143,9 +143,12 @@ class WithdrawlButton extends StatelessWidget {
       
       
       ):null,
-       child:isLoading.value? CircularProgressIndicator(strokeWidth: 1.w,color: colorFFFFFF,):  Padding(
-         padding:  EdgeInsets.only(top: 4.5.h),
-         child: Text('Withdrawal',style: tsS16C0x500,),
+       child:isLoading.value? SizedBox(
+        width: 18.98.w,
+        height: 18.85.w,
+        child: CircularProgressIndicator(strokeWidth: 1.w,color: colorFFFFFF,)):  Padding(
+         padding:  EdgeInsets.only(left: 7.37.w),
+         child: Text('出金',style: tsS16C0x500,),
        ));
        
        
@@ -185,15 +188,19 @@ class TextFormFieldWidget extends StatelessWidget {
               
               controller: controller,
               cursorColor:colorFAAA14 ,
+              cursorHeight: 17.h,
+              keyboardType: const TextInputType.numberWithOptions(),
               inputFormatters: [
+               // ThousandsFormatter(),
              FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+             
           ],
            onFieldSubmitted: ((value) {
            _formKey.currentState?.validate();
          }),
         
          validator: ((  value) {
-           if(value ==null ||int.parse(value)>balance ){
+           if(value ==null ||double.parse(value)>balance ){
             isError.value=true;
              return "you have exceeded your withdrawl balance";
            }else{
@@ -211,10 +218,16 @@ class TextFormFieldWidget extends StatelessWidget {
                   )):null,
               enabledBorder:   const OutlineInputBorder(
                 
-                borderSide: BorderSide(color:colorFAAA14,width:1 )
+                borderSide: BorderSide(color:colorF3F3F3,width:1 )
                 
                 ),
+                focusedBorder:  OutlineInputBorder(
                 
+                borderSide: const BorderSide(color:colorFAAA14,width:1 ),
+                borderRadius: BorderRadius.circular(9.r),
+                ),
+               
+               
               ),
             );
           }
@@ -235,7 +248,7 @@ class WithdrawlAmountText extends StatelessWidget {
       padding:  EdgeInsets.only(left: 28.h),
       child: SizedBox(
         width: 1.sw,
-        child: Text('Please enter the withdrawal amount',style:tsS12C0x400 ,)),
+        child: Text('出金額を入力してください',style:tsS12C0x400 ,)),
     );
   }
 }
@@ -262,12 +275,12 @@ class FirstContainer extends StatelessWidget {
       children: [
         Padding(
           padding:  EdgeInsets.only(top: 18.h),
-          child: Text('${balance} Yen',style:tsS26C0xW700 ,),
+          child: Text('${balance} 円',style:tsS26C0xW700 ,),
         ),
         SizedBox(height: 5.h,),
          Padding(
            padding:  EdgeInsets.only(bottom: 18.h),
-           child: Text( 'Withdrawal balance',style:tsS12C0xW400  ,),
+           child: Text( '出金可能残高',style:tsS12C0xW400  ,),
          )
       
       ],

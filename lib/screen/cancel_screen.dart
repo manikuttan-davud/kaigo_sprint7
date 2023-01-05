@@ -132,17 +132,10 @@ class SecondContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 1.sw,
-      height: 148.h,
+      height: 135.h,
      color:colorFFFFFF,
      child: Column(
       children: [
-        // SizedBox(
-        //   width: 1.sw,
-        //   child: Padding(
-        //     padding: EdgeInsets.only(left: 24.w,top: 27.w),
-        //     child: Text('2. ペナルティポイントが付与されるケース',style:tsS14C0xW500 ,),
-        //   ),
-        // ),
         Padding(
           padding:  EdgeInsets.only(top: 27.h,left: 24.w),
           child: SizedBox(
@@ -180,7 +173,7 @@ class FirstContainer extends StatelessWidget {
       padding:  EdgeInsets.only(top: 10.h),
       child: Container(
         width: 1.sw,
-        height: 260.h,
+        height: 240.h,
         color:colorFFFFFF,
        child: Column(
         children: [
