@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -181,14 +183,14 @@ class TextFormFieldWidget extends StatelessWidget {
       padding:  EdgeInsets.only(left: 24.w),
       child: SizedBox(
         width: 240.w,
-        height: 42.h,
+       // height: 42.h,
         child: Obx(
            () {
             return TextFormField(
               
               controller: controller,
               cursorColor:colorFAAA14 ,
-              cursorHeight: 17.h,
+              //cursorHeight: 17.h,
               keyboardType: const TextInputType.numberWithOptions(),
               inputFormatters: [
                // ThousandsFormatter(),
@@ -216,6 +218,9 @@ class TextFormFieldWidget extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 8.h),
                     child: const Icon(Icons.warning_amber_outlined,color: colorFF6262,),
                   )):null,
+                  border: const OutlineInputBorder(
+                    borderSide: BorderSide(width: 1)
+                  ),
               enabledBorder:   const OutlineInputBorder(
                 
                 borderSide: BorderSide(color:colorF3F3F3,width:1 )
@@ -265,7 +270,7 @@ class FirstContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 326.w,
-      height: 110.h,
+      height: 93.h,
      decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(9.r),
       color: colorF7F7F7
@@ -277,7 +282,7 @@ class FirstContainer extends StatelessWidget {
           padding:  EdgeInsets.only(top: 18.h),
           child: Text('${balance} 円',style:tsS26C0xW700 ,),
         ),
-        SizedBox(height: 5.h,),
+      SizedBox(height: 5.h,),
          Padding(
            padding:  EdgeInsets.only(bottom: 18.h),
            child: Text( '出金可能残高',style:tsS12C0xW400  ,),
